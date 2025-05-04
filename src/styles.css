@@ -254,3 +254,60 @@ body {
     height: 350px;
 }
 
+
+/*Media Querys */
+
+@media (max-width: 776px){
+    #bootstrap-overrides .view-notes-btn{
+         font-size: 12px;
+    }
+
+    #bootstrap-overrides #addToDOBtn{
+        font-size: 12px;
+    }
+
+}
+
+/*Mobile */
+
+@media (max-width: 636px){
+    #bootstrap-overrides .container-fluid{
+        flex-direction: column;
+    }
+
+    #bootstrap-overrides .sidebar{
+        width: 100%;
+        margin-bottom: 20px;
+        
+    }
+}
+
+@media (max-width: 515px){
+    
+
+    #bootstrap-overrides .todo-title{
+        font-size: 12px;
+        text-wrap: wrap;
+    }
+}
+
+
+@media (max-width: 320px){
+    #bootstrap-overrides .view-notes-btn{
+        font-size: 10px;
+   }
+
+   #bootstrap-overrides .todo-title{
+        font-size: 10px;
+    }
+
+    #bootstrap-overrides .todo-date{
+        font-size: 11px;
+    }
+
+    #bootstrap-overrides .todo-item{
+        padding: 5px;
+    }
+
+}
+
