@@ -32,3 +32,18 @@ export function renderNewTasks(newTask){
     
     
 }
+
+
+export function renderNewProject(newProject){
+    const projectList = document.querySelector(".project-list");
+    let projectItem = document.createElement("div")
+
+    projectItem.classList.add("project-item")
+
+    projectItem.innerHTML = `<span class="project-color" style="background-color:${newProject.color};"></span>
+                    <span>${newProject.name}</span>`;
+
+    let lastElement = projectList.lastElementChild;
+
+    projectList.insertBefore(projectItem, lastElement);
+}

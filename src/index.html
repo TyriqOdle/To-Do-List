@@ -35,7 +35,7 @@
                 </div>
                 
             
-                <button class="btn btn-primary">Add New Project</button>
+                <button class="btn btn-primary" id="addProjectBtn">Add New Project</button>
                 
             </div>
         </div>
@@ -163,26 +163,25 @@
 
                 <!--New Project Modal-->
 
-                <div class="modal-overlay d-none" >
-                    <div class="motal-popout align-self-center bg-dark" id="addProjectModal">
+                <div class="modal-overlay d-none" id="addProjectModal" >
+                    <div class="motal-popout align-self-center bg-dark" >
                         <div class="modal-head">
                             <h4 class="todo-title">Add New Project</h4>
-                            <button class="btn btn-close"></button>
+                            <button class="btn btn-close" id="addProjectModalCloseBtn"></button>
                         </div>
 
                         <form action="" class="" id="addProject">
                             <div class="mb-3">
-                                <label for="Title" class="form-label" >Project Name</label>
-                                <input type="text" name="Title" id="TaskTitle" class="form-control" placeholder="Name of Task">
+                                <label for="Project Name" class="form-label" >Project Name</label>
+                                <input type="text" name="Project Name" id="TaskTitle" class="form-control" placeholder="Name of Task">
                             </div>
 
                             <div class="bm-3">
                                 <label for="Color" class="form-label">Color</label>
-                                <input type="color"  id="" class="form-control form-control-color mb-3 bg-dark">
+                                <input type="color"  name="Project Color" class="form-control form-control-color mb-3 bg-dark">
                             </div>
                             <hr>
-                            <button class="btn btn-sm btn-secondary align-self-end">Clsoe</button>
-                            <button class="btn btn-sm btn-primary" type="submit">Add Note</button>
+                            <button class="btn btn-sm btn-primary" type="submit">Add Project</button>
                         </form>
                         
 

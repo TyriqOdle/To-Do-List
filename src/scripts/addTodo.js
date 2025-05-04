@@ -1,5 +1,7 @@
 import { TodoItem } from "./todoItem.js"
 import { renderNewTasks } from "./DOMstuff.js"
+import {storeTodo} from "./storeData.js"
+
 const newTodoModal = document.getElementById("addtoDoModal")
 const closeTbn = document.getElementById("addTaskClose");
 
@@ -19,14 +21,10 @@ const addTodoForm = document.getElementById("addToDoForm")
 
         let newTask = new TodoItem(title,dueDate,priority,project,notes)
 
-        console.log(title, project, dueDate, notes)
-        console.log(data)
-
         addTodoForm.reset();
 
-        newTodoModal.classList.add("d-none")
-
         renderNewTasks(newTask);
+        storeTodo(newTask);
         newTodoModal.classList.add("d-none")
     })
 
