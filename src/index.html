@@ -3,10 +3,192 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="./index.js" type="module"></script>
+    <title>To Do List</title>
+    <link rel="stylesheet" href="./styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
 </head>
-<body>
-    
+<body class="bg-black text-white" >
+    <div class="container-fluid">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h4>Projects</h4>
+            </div>
+            
+            <div class="project-list">
+                <!-- Projects List -->
+                <div class="project-item active">
+                    <span class="project-color" style="background-color: #4f46e5;"></span>
+                    <span>Work</span>
+                </div>
+                
+                <div class="project-item">
+                    <span class="project-color" style="background-color: #10b981;"></span>
+                    <span>Personal</span>
+                </div>
+                
+                <div class="project-item">
+                    <span class="project-color" style="background-color: #f59e0b;"></span>
+                    <span>Home Renovation</span>
+                </div>
+                
+            
+                <button class="btn btn-primary">Add New Project</button>
+                
+            </div>
+        </div>
+
+        <!-- Main Content Area -->
+        <div class="main-content">
+            <!-- Header -->
+            <div class="content-header">
+                <h2>Work</h2>
+                <button class="btn btn-primary">
+                    <span class="plus-icon">+</span> New Todo
+                </button>
+            </div>
+            
+            <!-- Todo List -->
+            <div class="todo-list">
+                <!-- Todo Item 1 -->
+                <div class="todo-item">
+                    <div class="todo-header">
+                        <div class="todo-left">
+                            <input type="checkbox" class="todo-checkbox" id="todo1">
+                            <label class="todo-title" for="todo1">Quarterly report</label>
+                        </div>
+                        <div class="todo-right">
+                            <span class="todo-date">2025-05-15</span>
+                            <span class="priority-badge priority-high">High</span>
+                            <button class="btn btn-primary b-sm">View Notes</button>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!--Modals-->
+
+                <!-- View Notes Modal -->
+                <div class="modal-overlay d-none" >
+                    <div class="motal-popout align-self-center bg-dark">
+                        <div class="modal-head">
+                            <h4 class="todo-title">Todo Details: Test</h4>
+                            <button class="btn btn-close"></button>
+                        </div>
+
+                        <div class="todo-modal-info">
+                            <div class="modal-group">
+                                <h6>Project:</h6> <span> Name</span>
+                            </div>
+                            <div class="modal-group">
+                                <h6>Due Date:</h6> <span> 3/May/2025 </span>
+                            </div>
+                            <div class="modal-group">
+                                <h6>Priority:</h6> <span>High </span>
+                            </div>
+                            <div class="modal-group">
+                                <h6>Status: </h6> <span>Not Completed </span>
+                            </div> 
+                        </div>
+                        <hr>
+
+                        <div class="to-modal-motes">
+                            <h4>Notes</h4>
+                            <div class="notes-content mb-2">
+                                Notes go here
+                            </div>
+
+                            <div class="add-note">
+                                <h4>Add Note:</h4>
+                                <input class="form-control-sm mb-2" type="text" placeholder="Add New Note" style="width: 100%;">
+                                <button class="btn btn-sm btn-secondary align-self-end">Clsoe</button>
+                                <button class="btn btn-sm btn-primary">Save Note</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Add New Todo Modal-->
+                <div class="modal-overlay d-none">
+                    <div class="motal-popout align-self-center bg-dark">
+                        <div class="modal-head">
+                            <h4 class="todo-title">Add New Task</h4>
+                            <button class="btn btn-close"></button>
+                        </div>
+
+                        <form action="" class="" id="addToDo">
+                            <div class="mb-3">
+                                <label for="Title" class="form-label" >Title</label>
+                                <input type="text" name="Title" id="TaskTitle" class="form-control" placeholder="Name of Task">
+                            </div>
+
+                            <div class="bm-3">
+                                <label for="Project" class="form-label">Project</label>
+                                <select name="" id="TaskProject" class="form-select">
+                                    <option value="1">Options Go Heare</option>
+                                </select>
+                            </div>
+
+                            <div class="row mb-3">
+                                <div class="col">
+                                    <label for="Due Date" class="form-label">Due Date</label>
+                                    <input type="date" name="Due Date" id="dueDate" class="form-control">
+                                </div>
+
+                                <div class="col">
+                                    <label for="Priority" class="form-label">Priority</label>
+                                    <select name="" id="taskPriority" class="form-select">
+                                        <option value="1">Options Go Heare</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="Notes" class="form-label">Notes</label>
+                                <textarea name="" id="" class="form-control" placeholder="Place any Notes here"></textarea>
+                            </div>
+                            
+                            <button class="btn btn-sm btn-secondary align-self-end">Clsoe</button>
+                            <button class="btn btn-sm btn-primary" type="submit">Add Note</button>
+                        </form>
+                        <hr>
+
+                            
+                    </div>
+                </div>
+
+                <!--New Project Modal-->
+
+                <div class="modal-overlay d-none" >
+                    <div class="motal-popout align-self-center bg-dark" id="addProjectModal">
+                        <div class="modal-head">
+                            <h4 class="todo-title">Add New Project</h4>
+                            <button class="btn btn-close"></button>
+                        </div>
+
+                        <form action="" class="" id="addProject">
+                            <div class="mb-3">
+                                <label for="Title" class="form-label" >Project Name</label>
+                                <input type="text" name="Title" id="TaskTitle" class="form-control" placeholder="Name of Task">
+                            </div>
+
+                            <div class="bm-3">
+                                <label for="Color" class="form-label">Color</label>
+                                <input type="color"  id="" class="form-control form-control-color mb-3 bg-dark">
+                            </div>
+                            <hr>
+                            <button class="btn btn-sm btn-secondary align-self-end">Clsoe</button>
+                            <button class="btn btn-sm btn-primary" type="submit">Add Note</button>
+                        </form>
+                        
+
+                        
+                            
+                    </div>
+                </div>
+
+            </div>
+    </div>
 </body>
 </html>
