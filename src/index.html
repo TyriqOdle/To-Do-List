@@ -115,7 +115,7 @@
                     <div class="motal-popout align-self-center bg-dark">
                         <div class="modal-head">
                             <h4 class="todo-title">Add New Task</h4>
-                            <button class="btn btn-close"></button>
+                            <button class="btn btn-close" id="addTaskClose"></button>
                         </div>
 
                         <form action="" class="" id="addToDoForm">
@@ -128,6 +128,7 @@
                                 <label for="Project" class="form-label">Project</label>
                                 <select name="Project" id="TaskProject" class="form-select">
                                     <option value="1">Options Go Heare</option>
+                                    <option value="Pick me wu w">P8ick me</option>
                                 </select>
                             </div>
 
@@ -140,9 +141,9 @@
                                 <div class="col">
                                     <label for="Priority" class="form-label">Priority</label>
                                     <select name="Priority" id="taskPriority" class="form-select">
-                                        <option value="1">Low</option>
-                                        <option value="1">Medium</option>
-                                        <option value="1">High</option>
+                                        <option value="Low">Low</option>
+                                        <option value="Medium">Medium</option>
+                                        <option value="High">High</option>
                                     </select>
                                 </div>
                             </div>
@@ -152,8 +153,7 @@
                                 <textarea name="Notes" id="" class="form-control" placeholder="Place any Notes here"></textarea>
                             </div>
                             
-                            <button class="btn btn-sm btn-secondary align-self-end" >Clsoe</button>
-                            <button class="btn btn-sm btn-primary" type="submit">Add Note</button>
+                            <button class="btn btn-sm btn-primary" type="submit">Add Task</button>
                         </form>
                         <hr>
 

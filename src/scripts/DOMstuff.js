@@ -18,10 +18,10 @@ export function renderNewTasks(newTask){
 
     //Come Back and add btn event listener
 
-    todoLeft.innerHTML = `<input type="checkbox" class="todo-checkbox"">
-                            <label class="todo-title" for="todo1">${newTask.title}</label>`;
+    todoLeft.innerHTML = `<input id="${newTask.id}" type="checkbox" class="todo-checkbox"">
+                            <label class="todo-title" for="${newTask.id}">${newTask.title}</label>`;
     todoRight.innerHTML = `<span class="todo-date">${newTask.dueDate} </span>
-                            <span class="priority-badge priority-${newTask.priority.toLowerCase()}">${newTask.priority}</span>;`
+                            <span class="priority-badge priority-${newTask.priority.toLowerCase()}">${newTask.priority}</span>`;
     todoRight.appendChild(viewNotesBtn);
 
     todoHeader.appendChild(todoLeft);         

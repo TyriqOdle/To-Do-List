@@ -1,12 +1,10 @@
 import { TodoItem } from "./todoItem.js"
 import { renderNewTasks } from "./DOMstuff.js"
+const newTodoModal = document.getElementById("addtoDoModal")
+const closeTbn = document.getElementById("addTaskClose");
 
-export default function addTodo(){
-     //Show modal
-    const newTodoModal = document.getElementById("addtoDoModal")
-    newTodoModal.classList.remove("d-none")
-
-    const addTodoForm = document.getElementById("addToDoForm")
+//Event Listener for the Add Todo Modal
+const addTodoForm = document.getElementById("addToDoForm")
 
     addTodoForm.addEventListener("submit", (e) =>{
         e.preventDefault();
@@ -29,9 +27,18 @@ export default function addTodo(){
         newTodoModal.classList.add("d-none")
 
         renderNewTasks(newTask);
+        newTodoModal.classList.add("d-none")
+    })
 
+    closeTbn.addEventListener("click",() =>{
+        newTodoModal.classList.add("d-none")
     })
 
 
+
+export default function addTodo(){
+     //Show modal
+    
+    newTodoModal.classList.remove("d-none")
 }
 
