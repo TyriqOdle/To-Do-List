@@ -71,24 +71,24 @@
                 <!--Modals-->
 
                 <!-- View Notes Modal -->
-                <div class="modal-overlay d-none" >
+                <div class="modal-overlay d-none" id="viewNotesModal" >
                     <div class="motal-popout align-self-center bg-dark">
                         <div class="modal-head">
-                            <h4 class="todo-title">Todo Details: Test</h4>
-                            <button class="btn btn-close"></button>
+                            <h4 class="todo-title" id="viewNotesTitle">Todo Details: Test</h4>
+                            <button class="btn btn-close" id="viewNotesCloseBtn"></button>
                         </div>
 
                         <div class="todo-modal-info">
-                            <div class="modal-group">
+                            <div class="modal-group" id="viewNotesProject">
                                 <h6>Project:</h6> <span> Name</span>
                             </div>
-                            <div class="modal-group">
+                            <div class="modal-group" id="viewNotesDueDate">
                                 <h6>Due Date:</h6> <span> 3/May/2025 </span>
                             </div>
-                            <div class="modal-group">
+                            <div class="modal-group" id="viewNotesPriority">
                                 <h6>Priority:</h6> <span>High </span>
                             </div>
-                            <div class="modal-group">
+                            <div class="modal-group" id="viewNotesStatus">
                                 <h6>Status: </h6> <span>Not Completed </span>
                             </div> 
                         </div>
@@ -96,15 +96,15 @@
 
                         <div class="to-modal-motes">
                             <h4>Notes</h4>
-                            <div class="notes-content mb-2">
-                                Notes go here
+                            <div class="notes-content mb-2" id="viewNotes-notes">
+                                <!--Notes Go here.-->
                             </div>
 
                             <div class="add-note">
                                 <h4>Add Note:</h4>
-                                <input class="form-control-sm mb-2" type="text" placeholder="Add New Note" style="width: 100%;">
+                                <input class="form-control-sm mb-2" type="text" placeholder="Add New Note" style="width: 100%;" id="addNotesinput">
                                 <button class="btn btn-sm btn-secondary align-self-end">Clsoe</button>
-                                <button class="btn btn-sm btn-primary">Save Note</button>
+                                <button class="btn btn-sm btn-primary" id="saveNotesBtn">Save Note</button>
                             </div>
                         </div>
                     </div>
@@ -121,26 +121,25 @@
                         <form action="" class="" id="addToDoForm">
                             <div class="mb-3">
                                 <label for="Title" class="form-label" >Title</label>
-                                <input type="text" name="Title" id="TaskTitle" class="form-control" placeholder="Name of Task">
+                                <input type="text" name="Title" id="TaskTitle" class="form-control" placeholder="Name of Task" required>
                             </div>
 
                             <div class="bm-3">
                                 <label for="Project" class="form-label">Project</label>
                                 <select name="Project" id="TaskProject" class="form-select">
                                     <option value="1">Options Go Heare</option>
-                                    <option value="Pick me wu w">P8ick me</option>
                                 </select>
                             </div>
 
                             <div class="row mb-3">
                                 <div class="col">
                                     <label for="Due Date" class="form-label">Due Date</label>
-                                    <input type="Date" name="Due Date" id="dueDate" class="form-control">
+                                    <input type="Date" name="Due Date" id="dueDate" class="form-control" required>
                                 </div>
 
                                 <div class="col">
                                     <label for="Priority" class="form-label">Priority</label>
-                                    <select name="Priority" id="taskPriority" class="form-select">
+                                    <select name="Priority" id="taskPriority" class="form-select" required>
                                         <option value="Low">Low</option>
                                         <option value="Medium">Medium</option>
                                         <option value="High">High</option>
@@ -150,7 +149,7 @@
 
                             <div class="mb-3">
                                 <label for="Notes" class="form-label">Notes</label>
-                                <textarea name="Notes" id="" class="form-control" placeholder="Place any Notes here"></textarea>
+                                <textarea name="Notes" id="" class="form-control" placeholder="Place any Notes here" ></textarea>
                             </div>
                             
                             <button class="btn btn-sm btn-primary" type="submit">Add Task</button>
@@ -173,12 +172,12 @@
                         <form action="" class="" id="addProject">
                             <div class="mb-3">
                                 <label for="Project Name" class="form-label" >Project Name</label>
-                                <input type="text" name="Project Name" id="TaskTitle" class="form-control" placeholder="Name of Task">
+                                <input type="text" name="Project Name" id="TaskTitle" class="form-control" placeholder="Name of Task" required>
                             </div>
 
                             <div class="bm-3">
                                 <label for="Color" class="form-label">Color</label>
-                                <input type="color"  name="Project Color" class="form-control form-control-color mb-3 bg-dark">
+                                <input type="color"  name="Project Color" class="form-control form-control-color mb-3 bg-dark" required>
                             </div>
                             <hr>
                             <button class="btn btn-sm btn-primary" type="submit">Add Project</button>

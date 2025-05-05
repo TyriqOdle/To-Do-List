@@ -1,3 +1,5 @@
+import viewNotes from "./viewNotes.js";
+
 export function renderNewTasks(newTask){
     const taskList = document.querySelector(".todo-list");
     let newTodo = document.createElement("div");
@@ -15,8 +17,13 @@ export function renderNewTasks(newTask){
     let viewNotesBtn = document.createElement("button")
     viewNotesBtn.classList.add("btn","btn-primary","view-notes-btn")
     viewNotesBtn.textContent = "View Notes"
+    viewNotesBtn.setAttribute("data-id",newTask.id);
 
-    //Come Back and add btn event listener
+    //Adds event listener to the view notes button.
+    viewNotesBtn.addEventListener("click", (e) =>{
+        let taskID = e.target.dataset.id;
+        viewNotes(taskID);
+    });
 
     todoLeft.innerHTML = `<input id="${newTask.id}" type="checkbox" class="todo-checkbox"">
                             <label class="todo-title" for="${newTask.id}">${newTask.title}</label>`;

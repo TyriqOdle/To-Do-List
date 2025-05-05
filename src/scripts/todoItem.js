@@ -6,5 +6,10 @@ export class TodoItem{
         this.priority = priority
         this.project = project
         this.notes = notes
+        this.status = "Not Completed"
+    }
+
+    updateStatus(){
+        this.status = !this.status
     }
 }

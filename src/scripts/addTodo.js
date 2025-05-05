@@ -1,9 +1,10 @@
 import { TodoItem } from "./todoItem.js"
 import { renderNewTasks } from "./DOMstuff.js"
-import {storeTodo} from "./storeData.js"
+import {storeTodo, projects} from "./storeData.js"
 
 const newTodoModal = document.getElementById("addtoDoModal")
 const closeTbn = document.getElementById("addTaskClose");
+
 
 //Event Listener for the Add Todo Modal
 const addTodoForm = document.getElementById("addToDoForm")
@@ -36,7 +37,21 @@ const addTodoForm = document.getElementById("addToDoForm")
 
 export default function addTodo(){
      //Show modal
-    
+    loadProjectOptions();
     newTodoModal.classList.remove("d-none")
+    
+}
+
+function loadProjectOptions(){
+    const projectDropdown = document.getElementById("TaskProject");
+    
+    projects.forEach((project) =>{
+        let newOption = document.createElement("option")
+        
+        newOption.value = project.name;
+        newOption.text = project.name;
+
+        projectDropdown.appendChild(newOption);
+    })
 }
 

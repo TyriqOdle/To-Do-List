@@ -222,7 +222,7 @@ body {
 
 .motal-popout{
     width: 400px;
-    height: 500px;
+    min-height: 500px;
     padding: 20px;
     border: solid white;
     border-radius: 5px;
@@ -254,6 +254,9 @@ body {
     height: 350px;
 }
 
+#viewNotesTitle{
+    font-size: 20px;
+}
 
 /*Media Querys */
 

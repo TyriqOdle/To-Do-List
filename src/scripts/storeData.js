@@ -1,5 +1,5 @@
-let todoList = []
-let projects = []
+export let todoList = []
+export let projects = []
 
 export function storeTodo(newTodo){
     todoList.push(newTodo)
