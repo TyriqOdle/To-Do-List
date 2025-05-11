@@ -7,5 +7,30 @@ export function storeTodo(newTodo){
 
 export function storeProject(newProject){
     projects.push(newProject);
-    console.log(projects)
+    
 }
+
+
+export function retrieveData() {
+    const storedProjects = localStorage.getItem("projects");
+    const storedTodoList = localStorage.getItem("todoList");
+
+    if (storedProjects) {
+        projects = JSON.parse(storedProjects);
+    } else {
+        projects = [];
+    }
+
+    if (storedTodoList) {
+        todoList = JSON.parse(storedTodoList);
+    } else {
+        todoList = [];
+    }
+}
+
+export function storeData() {
+    localStorage.setItem("projects", JSON.stringify(projects));
+    localStorage.setItem("todoList", JSON.stringify(todoList));
+}
+
+

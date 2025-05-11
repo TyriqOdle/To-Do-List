@@ -1,9 +1,15 @@
-import addTodo from "./scripts/addTodo.js"
-import addProject from "./scripts/addProject.js"
-
+import { addProjectEventListener,addNewTaskEventListener } from "./scripts/eventListeners.js"
+import {retrieveData} from "./scripts/storeData.js";
+import { renderAllTasks,renderAllProjects } from "./scripts/DOMstuff.js";
+import { switchProjects } from "./scripts/switchProjects.js";
 
 const addTodoBtn = document.getElementById("addToDOBtn")
-addTodoBtn.addEventListener("click", addTodo)
+addNewTaskEventListener(addTodoBtn);
 
 const addProjectBtn = document.getElementById("addProjectBtn");
-addProjectBtn.addEventListener("click", addProject)
+addProjectEventListener(addProjectBtn);
+
+
+retrieveData();
+renderAllTasks();
+renderAllProjects();

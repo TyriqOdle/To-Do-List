@@ -1,6 +1,6 @@
 import { TodoItem } from "./todoItem.js"
-import { renderNewTasks } from "./DOMstuff.js"
-import {storeTodo, projects} from "./storeData.js"
+import { renderTasks } from "./DOMstuff.js"
+import {storeTodo,storeData} from "./storeData.js"
 
 const newTodoModal = document.getElementById("addtoDoModal")
 const closeTbn = document.getElementById("addTaskClose");
@@ -16,6 +16,9 @@ const addTodoForm = document.getElementById("addToDoForm")
 
         let title = data.get("Title")
         let project = data.get("Project")
+        if(project == "1" ){
+            project = "Home"
+        }
         let priority = data.get("Priority")
         let dueDate = data.get("Due Date")
         let notes = data.get("Notes")
@@ -24,8 +27,9 @@ const addTodoForm = document.getElementById("addToDoForm")
 
         addTodoForm.reset();
 
-        renderNewTasks(newTask);
+        renderTasks(newTask);
         storeTodo(newTask);
+        storeData();
         newTodoModal.classList.add("d-none")
     })
 
@@ -37,21 +41,9 @@ const addTodoForm = document.getElementById("addToDoForm")
 
 export default function addTodo(){
      //Show modal
-    loadProjectOptions();
     newTodoModal.classList.remove("d-none")
     
 }
 
-function loadProjectOptions(){
-    const projectDropdown = document.getElementById("TaskProject");
-    
-    projects.forEach((project) =>{
-        let newOption = document.createElement("option")
-        
-        newOption.value = project.name;
-        newOption.text = project.name;
 
-        projectDropdown.appendChild(newOption);
-    })
-}
 

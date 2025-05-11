@@ -45,11 +45,22 @@ body {
 .project-item {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     padding: 10px 15px;
     margin-bottom: 5px;
     border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.2s ease;
+}
+
+.project-item > .left{
+    display: flex;
+    align-items: center;
+}
+
+.project-item > .left > h5{
+    margin-bottom: 0px;
+    font-size: 15px;
 }
 
 .project-item:hover {
@@ -262,7 +273,7 @@ body {
 
 @media (max-width: 776px){
     #bootstrap-overrides .view-notes-btn{
-         font-size: 12px;
+        font-size: 12px;
     }
 
     #bootstrap-overrides #addToDOBtn{

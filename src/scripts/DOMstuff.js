@@ -1,6 +1,9 @@
-import viewNotes from "./viewNotes.js";
+import { switchProjects } from "./switchProjects.js";
+import { viewNotesEventListener } from "./eventListeners.js";
+import { todoList, projects } from "./storeData.js";
+import { deletePrjocet } from "./deleteProject.js";
 
-export function renderNewTasks(newTask){
+export function renderTasks(newTask){
     const taskList = document.querySelector(".todo-list");
     let newTodo = document.createElement("div");
     newTodo.classList.add("todo-item");
@@ -19,11 +22,9 @@ export function renderNewTasks(newTask){
     viewNotesBtn.textContent = "View Notes"
     viewNotesBtn.setAttribute("data-id",newTask.id);
 
+
     //Adds event listener to the view notes button.
-    viewNotesBtn.addEventListener("click", (e) =>{
-        let taskID = e.target.dataset.id;
-        viewNotes(taskID);
-    });
+    viewNotesEventListener(viewNotesBtn);
 
     todoLeft.innerHTML = `<input id="${newTask.id}" type="checkbox" class="todo-checkbox"">
                             <label class="todo-title" for="${newTask.id}">${newTask.title}</label>`;
@@ -47,10 +48,45 @@ export function renderNewProject(newProject){
 
     projectItem.classList.add("project-item")
 
-    projectItem.innerHTML = `<span class="project-color" style="background-color:${newProject.color};"></span>
-                    <span>${newProject.name}</span>`;
+    let deletePrjocetdiv = document.createElement("div");
+    let deletePrjocetBtn = document.createElement("button");
+
+    deletePrjocetBtn.setAttribute("id", "deleteProjectBtn");
+    deletePrjocetBtn.classList.add("btn" , "btn-close")
+    deletePrjocetBtn.setAttribute("data-id",newProject.id)
+
+    deletePrjocetBtn.addEventListener("click",(e)=>{
+        deletePrjocet(e.target.dataset.id)
+    });
+
+    deletePrjocetdiv.appendChild(deletePrjocetBtn)
+
+    projectItem.innerHTML = `<div class="left">
+                        <div class="project-color" style="background-color:${newProject.color};"></div>
+                            <h5>${newProject.name}</h5>
+                        </div>`;
+    projectItem.appendChild(deletePrjocetdiv);
+
+    projectItem.setAttribute("data-id",newProject.id);
+    projectItem.setAttribute("data-name",newProject.name);
+    
+    projectItem.addEventListener("click", (e)=>{
+        switchProjects(e);
+    });
 
     let lastElement = projectList.lastElementChild;
 
     projectList.insertBefore(projectItem, lastElement);
+}
+
+export function renderAllTasks(){
+    todoList.forEach((task) =>{
+        renderTasks(task)
+    })
+}
+
+export function renderAllProjects(){
+    projects.forEach((project)=>{
+        renderNewProject(project);
+    })
 }

@@ -20,21 +20,13 @@
             <div class="project-list">
                 <!-- Projects List -->
                 <div class="project-item active">
-                    <span class="project-color" style="background-color: #4f46e5;"></span>
-                    <span>Work</span>
+                    <div class="left">
+                        <div class="project-color" style="background-color: #4f46e5;"></div>
+                        <h5>Home</h5>
+                    </div>
+                    <div><button class="btn btn-close" id="deleteProjectBtn"></button></div>
                 </div>
-                
-                <div class="project-item">
-                    <span class="project-color" style="background-color: #10b981;"></span>
-                    <span>Personal</span>
-                </div>
-                
-                <div class="project-item">
-                    <span class="project-color" style="background-color: #f59e0b;"></span>
-                    <span>Home Renovation</span>
-                </div>
-                
-            
+                <!--New projects will be added here.-->
                 <button class="btn btn-primary" id="addProjectBtn">Add New Project</button>
                 
             </div>
@@ -44,7 +36,7 @@
         <div class="main-content">
             <!-- Header -->
             <div class="content-header">
-                <h2>Work</h2>
+                <h2>Home</h2>
                 <button class="btn btn-primary" id="addToDOBtn">
                     <span class="plus-icon">+</span> New Todo
                 </button>
@@ -52,23 +44,10 @@
             
             <!-- Todo List -->
             <div class="todo-list">
-                <!-- Todo Item 1 -->
-                <div class="todo-item">
-                    <div class="todo-header">
-                        <div class="todo-left">
-                            <input type="checkbox" class="todo-checkbox" id="todo1">
-                            <label class="todo-title" for="todo1">Quarterly report</label>
-                        </div>
-                        <div class="todo-right">
-                            <span class="todo-date">2025-05-15</span>
-                            <span class="priority-badge priority-high">High</span>
-                            <button class="btn btn-primary  view-notes-btn">View Notes</button>
-                        </div>
-                    </div>
-                </div>
+                <!-- Todo Items will render here -->
+            </div>
 
-
-                <!--Modals-->
+            <!--Modals-->
 
                 <!-- View Notes Modal -->
                 <div class="modal-overlay d-none" id="viewNotesModal" >
@@ -100,11 +79,9 @@
                                 <!--Notes Go here.-->
                             </div>
 
-                            <div class="add-note">
-                                <h4>Add Note:</h4>
-                                <input class="form-control-sm mb-2" type="text" placeholder="Add New Note" style="width: 100%;" id="addNotesinput">
-                                <button class="btn btn-sm btn-secondary align-self-end">Clsoe</button>
-                                <button class="btn btn-sm btn-primary" id="saveNotesBtn">Save Note</button>
+                            <div class="controls">
+                                <button class="btn btn-sm btn-secondary align-self-end" id="editTaskBtn" style="background-color: orange; font-weight: bold;">Edit</button>
+                                <button class="btn btn-sm btn-primary" id="deleteNotesBtn" style="background-color: red;">Delete Note</button>
                             </div>
                         </div>
                     </div>
@@ -127,7 +104,7 @@
                             <div class="bm-3">
                                 <label for="Project" class="form-label">Project</label>
                                 <select name="Project" id="TaskProject" class="form-select">
-                                    <option value="1">Options Go Heare</option>
+                                    <option value="1">Please Select a Project</option>
                                 </select>
                             </div>
 
@@ -189,7 +166,55 @@
                     </div>
                 </div>
 
-            </div>
+                <!--Edit  Todo Modal-->
+                <div class="modal-overlay d-none" id="editTodoModal">
+                    <div class="motal-popout align-self-center bg-dark">
+                        <div class="modal-head">
+                            <h4 class="todo-title">Editing Task</h4>
+                            <button class="btn btn-close" id="editTaskClose"></button>
+                        </div>
+
+                        <form action="" class="" id="editForm">
+                            <div class="mb-3">
+                                <label for="Title" class="form-label" >Title</label>
+                                <input type="text" name="Title" id="TaskTitleedit" class="form-control" placeholder="Name of Task" required>
+                            </div>
+
+                            <div class="bm-3">
+                                <label for="Project" class="form-label">Project</label>
+                                <select name="Project" id="TaskProjecedit" class="form-select">
+                                    <option value="1">Please Select a Project</option>
+                                </select>
+                            </div>
+
+                            <div class="row mb-3">
+                                <div class="col">
+                                    <label for="Due Date" class="form-label">Due Date</label>
+                                    <input type="Date" name="Due Date" id="dueDateedit" class="form-control" required>
+                                </div>
+
+                                <div class="col">
+                                    <label for="Priority" class="form-label">Priority</label>
+                                    <select name="Priority" id="taskPriorityedit" class="form-select" required>
+                                        <option value="Low">Low</option>
+                                        <option value="Medium">Medium</option>
+                                        <option value="High">High</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="Notes" class="form-label">Notes</label>
+                                <textarea name="Notes" id="notesedit" class="form-control" placeholder="Place any Notes here" ></textarea>
+                            </div>
+                            
+                            <button class="btn btn-sm btn-primary" type="submit">Edit Task</button>
+                        </form>
+                        <hr>
+
+                            
+                    </div>
+                </div>
     </div>
 </body>
 </html>
